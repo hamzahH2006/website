@@ -139,3 +139,22 @@
 @media(max-width:1050px){[data-design=glass] .hero{gap:30px}[data-design=glass] .orbit-one{width:360px;height:360px}[data-design=glass] .floating-note{right:0;font-size:10px}[data-design=glass] .privacy-note{left:0;font-size:10px}}
 @media(max-width:767px){[data-design=glass] .nav{border-radius:999px;padding-inline:14px}[data-design=glass] h1{font-size:clamp(32px,8.8vw,45px);line-height:1.5;letter-spacing:-1px}[data-design=glass] .hero-copy>p{font-size:13px}[data-design=glass] .hero{gap:20px}[data-design=glass] .floating-note{top:45px;padding:12px 16px}[data-design=glass] .privacy-note{bottom:58px;padding:12px 16px}[data-design=glass] .phone.real-screenshot{transform:rotate(-2deg)}[data-design=glass] .privacy-emblem{width:52px;height:52px;font-size:30px}}
 @media(prefers-reduced-transparency:reduce){[data-design=glass] :is(.floating-note,.privacy-note){background:var(--content);backdrop-filter:none}}
+/* QPay wordmark and a complete Android download surface. */
+[data-design=glass] .brand strong{font-family:"Segoe UI",Arial,sans-serif;font-size:25px;letter-spacing:-.6px}
+[data-design=glass] .brand strong span{font-size:8px;letter-spacing:1.6px;color:var(--muted)}
+[data-design=glass] .brandmark{font:bold 23px "Segoe UI",Arial,sans-serif}
+[data-design=glass] .orbit{display:none}
+[data-design=glass] .hero-copy{max-width:480px}
+[data-design=glass] .hero h1{font-size:clamp(44px,5.8vw,78px);line-height:1.35;margin-block:24px}
+[data-design=glass] .hero-copy>p{max-width:400px}
+[data-design=glass] .floating-note{top:76px}
+[data-design=glass] .phone.real-screenshot{width:305px}
+[data-design=glass] .download{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:55px;padding:45px;margin-block:55px}
+.download-intro>p{line-height:2}.download-intro .button{margin-top:16px}.download .download-status{position:static;margin:16px 0 0;min-height:24px;line-height:1.8;color:var(--muted)}
+.release-meta{display:grid;grid-template-columns:1fr 1fr;gap:22px 24px;margin:0}
+.release-meta>div{display:block;padding:0;border:none;font-size:12px}.release-meta dt{margin-bottom:8px;font-size:10px;color:var(--muted)}.release-meta dd{margin:0;font-size:13px;color:var(--text);font-weight:600}
+.install-guide{margin-top:26px;border-top:1px solid var(--line);padding-top:20px;font-size:12px}
+.install-guide summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;list-style:none;color:var(--text);min-height:40px}
+.install-guide summary::-webkit-details-marker{display:none}.install-guide summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}.install-guide[open] summary span{transform:rotate(45deg)}
+.install-guide ol{padding-right:20px;line-height:2.2;color:var(--muted)}.install-guide li{padding-right:5px;margin-bottom:10px}.install-guide>p{color:var(--muted);font-size:11px;line-height:2;margin-bottom:0}
+@media(max-width:767px){[data-design=glass] .hero h1{font-size:clamp(44px,12vw,58px);letter-spacing:-1.4px;line-height:1.35}[data-design=glass] .brand strong{font-size:22px}[data-design=glass] .brand strong span{font-size:7px;letter-spacing:1px}[data-design=glass] .phone.real-screenshot{width:min(285px,calc(100% - 36px))}[data-design=glass] .preview-stage{min-height:630px}[data-design=glass] .download{grid-template-columns:1fr;padding:28px 22px;gap:30px}[data-design=glass] .download h2{font-size:27px;line-height:1.5}.release-info{border-top:1px solid var(--line);padding-top:25px}.release-meta{gap:22px 16px}.release-meta dd{font-size:12px}}
