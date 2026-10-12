@@ -158,3 +158,55 @@
 .install-guide summary::-webkit-details-marker{display:none}.install-guide summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}.install-guide[open] summary span{transform:rotate(45deg)}
 .install-guide ol{padding-right:20px;line-height:2.2;color:var(--muted)}.install-guide li{padding-right:5px;margin-bottom:10px}.install-guide>p{color:var(--muted);font-size:11px;line-height:2;margin-bottom:0}
 @media(max-width:767px){[data-design=glass] .hero h1{font-size:clamp(44px,12vw,58px);letter-spacing:-1.4px;line-height:1.35}[data-design=glass] .brand strong{font-size:22px}[data-design=glass] .brand strong span{font-size:7px;letter-spacing:1px}[data-design=glass] .phone.real-screenshot{width:min(285px,calc(100% - 36px))}[data-design=glass] .preview-stage{min-height:630px}[data-design=glass] .download{grid-template-columns:1fr;padding:28px 22px;gap:30px}[data-design=glass] .download h2{font-size:27px;line-height:1.5}.release-info{border-top:1px solid var(--line);padding-top:25px}.release-meta{gap:22px 16px}.release-meta dd{font-size:12px}}
+/* Mobile navigation is a non-modal disclosure; content remains reachable.
+   Layers: base auto, floating download 2, menu 3, keyboard skip link 4. */
+.mobile-menu-toggle,.mobile-menu,.mobile-download{display:none}
+[hidden]{display:none!important}
+[data-design=glass] .feature-symbol.text-symbol{font:600 16px "Segoe UI",Tahoma,sans-serif}
+[data-design=glass] .feature-card p{font-size:14px}
+[data-design=glass] .card-bottom{font-size:11px;line-height:1.8}
+[data-design=glass] .feature-tag{font-size:11px}
+[data-design=glass] .hero .trust{font-size:12px;line-height:1.8}
+[data-design=glass] .preview-caption{font-size:12px}
+[data-design=glass] .nav{position:relative}
+[data-design=glass] .nav .mobile-menu{position:absolute;top:calc(100% + 12px);left:0;right:0;border:1px solid var(--chrome-edge);border-radius:24px;padding:12px;background:var(--content);box-shadow:0 18px 40px var(--chrome-shadow);z-index:3}
+.mobile-menu a{display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:12px 16px;border-radius:14px;font-size:14px;color:var(--text)}
+.mobile-menu a:hover,.mobile-menu a:focus-visible{background:var(--content-inset)}.mobile-menu a span{color:var(--accent)}
+.skip{z-index:4}
+@media(max-width:767px){
+ [data-design=glass] .nav-actions{gap:8px}
+ [data-design=glass] .nav-actions>.button.small{display:none}
+ .mobile-menu-toggle{display:block;min-height:44px;padding:0 16px;border:1px solid var(--chrome-edge);border-radius:999px;background:var(--chrome-fill);color:var(--text);font:12px Tahoma,sans-serif;box-shadow:inset 0 1px 0 #ffffff2a;backdrop-filter:blur(16px)}
+ .mobile-menu-toggle[aria-expanded=true]{background:var(--content-inset);border-color:var(--accent)}
+ [data-design=glass] .nav .mobile-menu{display:block}
+ [data-design=glass] .theme{width:44px;height:44px}
+ [data-design=glass] .hero h1{margin-block:22px}
+ [data-design=glass] .hero-copy>p{font-size:15px;line-height:2}
+ [data-design=glass] .hero-actions .button{min-height:48px;font-size:13px;padding-inline:16px}
+ [data-design=glass] .hero .trust{font-size:11px;gap:10px 18px}
+ [data-design=glass] .preview-stage{min-height:auto;overflow:visible;display:grid;grid-template-columns:1fr;padding:24px 0 0;gap:20px;background:none}
+ [data-design=glass] .phone.real-screenshot{transform:none;grid-row:1;width:min(300px,calc(100% - 20px));margin:auto;box-shadow:0 18px 40px var(--chrome-shadow)}
+ [data-design=glass] .floating-note{display:none}
+ [data-design=glass] .privacy-note{position:static;transform:none;grid-row:3;background:var(--content);box-shadow:none;border:1px solid var(--line);justify-content:center;padding:14px 20px;width:100%;border-radius:18px;font-size:13px}
+ [data-design=glass] .privacy-note small{font-size:12px}
+ [data-design=glass] .preview-caption{position:static;grid-row:2;text-align:center;font-size:12px}
+ [data-design=glass] .features{padding-top:45px}
+ [data-design=glass] .feature-card p{font-size:14px}
+ [data-design=glass] .card-bottom{font-size:11px}
+ [data-design=glass] .section-head>p{font-size:14px}
+ [data-design=glass] .sample-tabs button{font-size:13px;min-height:44px}
+ [data-design=glass] .panel-heading{font-size:14px}
+ [data-design=glass] .panel-heading>span{font-size:11px}
+ [data-design=glass] blockquote{font-size:13px}
+ [data-design=glass] .local-status{font-size:12px;line-height:1.8}
+ [data-design=glass] .privacy p{font-size:13px}
+ [data-design=glass] .footer-top>p{font-size:12px}
+ [data-design=glass] .footer-bottom{font-size:11px;line-height:1.8}
+ body:has(.mobile-download){padding-bottom:calc(105px + env(safe-area-inset-bottom,0px))}
+ .mobile-download{position:fixed;z-index:2;bottom:calc(12px + env(safe-area-inset-bottom,0px));left:16px;right:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 15px;border:1px solid var(--chrome-edge);border-radius:26px;background:linear-gradient(140deg,#ffffff15,transparent),var(--chrome-fill);backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);box-shadow:inset 0 1px 0 #ffffff2b,0 10px 30px var(--chrome-shadow)}
+ .mobile-download strong{display:block;font:600 16px "Segoe UI",Arial,sans-serif}
+ .mobile-download>div>span{display:block;font:10px "Segoe UI",Arial,sans-serif;color:var(--muted);margin-top:4px;direction:ltr}
+ .mobile-download .button{min-height:46px;padding-inline:18px;gap:12px;font-size:13px}
+}
+@media(prefers-reduced-transparency:reduce){.mobile-download,.mobile-menu-toggle{background:var(--content);backdrop-filter:none;-webkit-backdrop-filter:none}}
+@media(prefers-reduced-motion:no-preference){.mobile-menu:not([hidden]),.mobile-download:not([hidden]){animation:mobile-enter .2s ease-out}@keyframes mobile-enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}}

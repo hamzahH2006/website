@@ -40,3 +40,20 @@ if(splitTotal&&splitPeople){splitTotal.addEventListener('input',updateSplit);spl
 
 
 
+
+const mobileToggle=document.getElementById('mobile-menu-toggle');
+const mobileMenu=document.getElementById('mobile-menu');
+const mobileDownload=document.getElementById('mobile-download');
+if(mobileToggle&&mobileMenu&&mobileDownload){
+ const mobileQuery=matchMedia('(max-width:767px)');
+ let heroVisible=true,downloadVisible=false,footerVisible=false;
+ function updateDownload(){mobileDownload.hidden=!mobileQuery.matches||heroVisible||downloadVisible||footerVisible||!mobileMenu.hidden;}
+ function closeMenu(returnFocus=false){mobileMenu.hidden=true;mobileToggle.setAttribute('aria-expanded','false');updateDownload();if(returnFocus)mobileToggle.focus();}
+ mobileToggle.addEventListener('click',()=>{const open=mobileMenu.hidden;mobileMenu.hidden=!open;mobileToggle.setAttribute('aria-expanded',String(open));updateDownload();});
+ mobileMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{closeMenu();const target=document.querySelector(link.getAttribute('href'));if(target){target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}}));
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!mobileMenu.hidden)closeMenu(true);});
+ document.addEventListener('click',event=>{if(!mobileMenu.hidden&&!mobileMenu.contains(event.target)&&!mobileToggle.contains(event.target))closeMenu();});
+ mobileQuery.addEventListener('change',()=>{if(!mobileQuery.matches)closeMenu();updateDownload();});
+ if('IntersectionObserver' in window){const visibilityObserver=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.target.matches('.hero'))heroVisible=entry.isIntersecting;else if(entry.target.id==='download')downloadVisible=entry.isIntersecting;else footerVisible=entry.isIntersecting;}updateDownload();},{threshold:0,rootMargin:'-48px 0px 0px 0px'});[document.querySelector('.hero'),document.getElementById('download'),document.querySelector('footer')].forEach(section=>visibilityObserver.observe(section));}
+}
+
