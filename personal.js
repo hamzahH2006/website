@@ -1,0 +1,7 @@
+const themeButton=document.querySelector('.theme-toggle');
+let selectedTheme;try{selectedTheme=localStorage.getItem('hamza-personal-theme')}catch{}
+if(selectedTheme==='light'||selectedTheme==='dark')document.documentElement.dataset.theme=selectedTheme;
+function describeTheme(){themeButton.setAttribute('aria-label',getComputedStyle(document.documentElement).colorScheme==='dark'?'تفعيل الوضع الفاتح':'تفعيل الوضع الداكن');}
+describeTheme();themeButton.addEventListener('click',()=>{const theme=getComputedStyle(document.documentElement).colorScheme==='dark'?'light':'dark';document.documentElement.dataset.theme=theme;try{localStorage.setItem('hamza-personal-theme',theme)}catch{}describeTheme();});
+const inquiry=document.getElementById('inquiry-form');
+if(inquiry)inquiry.addEventListener('submit',async event=>{event.preventDefault();const idea=document.getElementById('idea').value.trim(),status=document.getElementById('form-status');if(!idea){status.textContent='اكتب نبذة عن فكرتك أولاً.';document.getElementById('idea').focus();return;}const message='أهلاً حمزة،\nعندي مشروع: '+document.getElementById('kind').value+'\n\n'+idea;try{await navigator.clipboard.writeText(message);status.textContent='تم نسخ الرسالة. تقدر تلصقها في وسيلة التواصل المناسبة.';document.getElementById('copy-fallback').hidden=true;}catch{document.getElementById('copy-fallback').hidden=false;const field=document.getElementById('message-copy');field.value=message;field.focus();field.select();status.textContent='النسخ التلقائي غير متاح. النص جاهز للنسخ يدوياً.';}});

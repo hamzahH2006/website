@@ -27,8 +27,6 @@ selectSample('purchase');
 let theme;try{theme=localStorage.getItem('luma-theme'+(document.documentElement.dataset.design?'-'+document.documentElement.dataset.design:''))}catch{}if(theme==='dark'||theme==='light')document.documentElement.dataset.theme=theme;
 document.getElementById('theme').addEventListener('click',()=>{const dark=getComputedStyle(document.documentElement).colorScheme==='dark';const next=dark?'light':'dark';document.documentElement.dataset.theme=next;try{localStorage.setItem('luma-theme'+(document.documentElement.dataset.design?'-'+document.documentElement.dataset.design:''),next)}catch{} document.getElementById('theme').setAttribute('aria-label',next==='dark'?'تفعيل الوضع الفاتح':'تفعيل الوضع الداكن')});
 document.getElementById('download-button').addEventListener('click',()=>{document.getElementById('download-status').textContent='طلب تنزيل QPay.apk. تابع التنزيل من المتصفح.'});
-document.getElementById('github-info').addEventListener('click',()=>{document.getElementById('footer-status').textContent='سيُضاف رابط مستودع GitHub الرسمي عند توفره.'});
-document.getElementById('contact-info').addEventListener('click',()=>{document.getElementById('footer-status').textContent='لم يُحدّد بريد التواصل بعد.'});
 
 document.querySelectorAll('[data-preview-sample]').forEach(button=>button.addEventListener('click',()=>selectSample(button.dataset.previewSample)));
 document.querySelectorAll('[data-design-link]').forEach(link=>{if(link.dataset.designLink===document.documentElement.dataset.design)link.setAttribute('aria-current','page')});
